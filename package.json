@@ -2,12 +2,11 @@
   "name": "mean",
   "version": "1.0.0",
   "description": "",
-  "main": "NJP11-1.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js"
+    "start": "nodemon server.js",
+    "ngrok": "/Users/ernestsembera/Downloads/ngrok http 8080"
   },
-  "author": "Ognjen",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.20.2",
