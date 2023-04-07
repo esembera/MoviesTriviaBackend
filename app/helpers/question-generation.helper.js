@@ -39,7 +39,7 @@ function getMovieDirector(crew) {
   return director;
 }
 
-async function generateQuestions(data) {
+async function generateQuestions(data, numberOfQuestions) {
   let flag = false;
   let oldFlag = false;
   let questions = [];
@@ -277,12 +277,16 @@ async function generateQuestions(data) {
       ],
     };
     questions.push(question);
-    console.log(questions);
+    // console.log(questions);
     oldFlag = flag;
   }
   questions = randomizeDataHelper.shuffleArrayData(questions);
-  //   console.log(questions);
-  return questions;
+  let finalQuestions = [];
+  for (i = 0; i < numberOfQuestions; i++) {
+    finalQuestions.push(questions[i]);
+  }
+  // console.log(questions);
+  return finalQuestions;
 }
 
 exports.generateQuestions = generateQuestions;

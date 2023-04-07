@@ -9,11 +9,16 @@ module.exports = function (express, pool) {
 
   apiRouter.post("/quiz-generator", function (req, res) {
     const { movies } = req.body;
+    // console.log(req.body);
+    const { numberOfQuestions } = req.body;
+    // console.log(numberOfQuestions);
     if (movies) {
-      questionGenerationHelper.generateQuestions(movies).then((data) => {
-        // console.log(data);
-        // res.json(data);
-      });
+      questionGenerationHelper
+        .generateQuestions(movies, numberOfQuestions)
+        .then((data) => {
+          // console.log(data);
+          res.json(data);
+        });
     }
   });
 
