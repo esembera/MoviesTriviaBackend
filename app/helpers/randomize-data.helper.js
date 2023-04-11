@@ -100,7 +100,7 @@ function getRandomGenre(genre, flag, oldFlag) {
     randomGenre = genres[Math.floor(Math.random() * genres.length)];
   }
   if (flag == oldFlag) {
-    genreBuffer.push(number);
+    genreBuffer.push(randomGenre);
   } else {
     genreBuffer.splice(0, genreBuffer.length);
   }
@@ -118,7 +118,7 @@ function getRandomProdCompany(prodCompany, flag, oldFlag) {
       prodCompanies[Math.floor(Math.random() * prodCompanies.length)];
   }
   if (flag == oldFlag) {
-    prodCompaniesBuffer.push(number);
+    prodCompaniesBuffer.push(randomProdCompany);
   } else {
     prodCompaniesBuffer.splice(0, prodCompaniesBuffer.length);
   }
@@ -146,7 +146,7 @@ function shuffleArrayData(array) {
 }
 
 function getRandomDirector(director, flag, oldFlag) {
-  let randomDirector = directors[Math.floor(Math.random() * genres.length)];
+  let randomDirector = directors[Math.floor(Math.random() * directors.length)];
   while (
     randomDirector == director ||
     directorBuffer.includes(randomDirector)
@@ -154,7 +154,7 @@ function getRandomDirector(director, flag, oldFlag) {
     randomDirector = directors[Math.floor(Math.random() * directors.length)];
   }
   if (flag == oldFlag) {
-    directorBuffer.push(number);
+    directorBuffer.push(randomDirector);
   } else {
     directorBuffer.splice(0, directorBuffer.length);
   }

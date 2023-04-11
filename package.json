@@ -5,7 +5,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon server.js",
-    "ngrok": "/Users/ernestsembera/Downloads/ngrok http 8080"
+    "ngrok-mac": "/Users/ernestsembera/Downloads/ngrok http 8080",
+    "ngrok-win": "ngrok http 8080"
   },
   "license": "ISC",
   "dependencies": {
