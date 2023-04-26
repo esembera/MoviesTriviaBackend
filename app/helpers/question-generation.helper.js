@@ -289,4 +289,14 @@ async function generateQuestions(data, numberOfQuestions) {
   return finalQuestions;
 }
 
+async function generatePremadeQuestions(questions, numberOfQuestions) {
+  questions = randomizeDataHelper.shuffleArrayData(questions);
+  let finalQuestions = [];
+  for (i = 0; i < numberOfQuestions; i++) {
+    finalQuestions.push(questions[i]);
+  }
+  return finalQuestions;
+}
+
 exports.generateQuestions = generateQuestions;
+exports.generatePremadeQuestions = generatePremadeQuestions;

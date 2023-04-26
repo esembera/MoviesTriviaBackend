@@ -146,7 +146,7 @@ function shuffleArrayData(array) {
 }
 
 function getRandomDirector(director, flag, oldFlag) {
-  let randomDirector = directors[Math.floor(Math.random() * genres.length)];
+  let randomDirector = directors[Math.floor(Math.random() * directors.length)];
   while (
     randomDirector == director ||
     directorBuffer.includes(randomDirector)
