@@ -12,7 +12,7 @@ module.exports = function (express, pool) {
   const apiRouter = express.Router();
 
   apiRouter.get("/", function (req, res) {
-    res.json({ message: "Dobro dosli na nas API!" });
+    res.json({ message: "Welcome to our API!" });
   });
 
   apiRouter.post("/quiz-generator", function (req, res) {
