@@ -33,7 +33,7 @@ module.exports = function (express, pool) {
   apiRouter.post("/comedy", function (req, res) {
     const { numberOfQuestions } = req.body;
     // console.log(numberOfQuestions);
-    if (movies) {
+    if (numberOfQuestions) {
       questions = comedyQuestions;
       questionGenerationHelper
         .generatePremadeQuestions(questions, numberOfQuestions)
@@ -47,7 +47,7 @@ module.exports = function (express, pool) {
   apiRouter.post("/thriller", function (req, res) {
     const { numberOfQuestions } = req.body;
     // console.log(numberOfQuestions);
-    if (movies) {
+    if (numberOfQuestions) {
       questions = thrillerQuestions;
       questionGenerationHelper
         .generatePremadeQuestions(questions, numberOfQuestions)
@@ -61,7 +61,7 @@ module.exports = function (express, pool) {
   apiRouter.post("/animation", function (req, res) {
     const { numberOfQuestions } = req.body;
     // console.log(numberOfQuestions);
-    if (movies) {
+    if (numberOfQuestions) {
       questions = animationQuestions;
       questionGenerationHelper
         .generatePremadeQuestions(questions, numberOfQuestions)
@@ -75,7 +75,7 @@ module.exports = function (express, pool) {
   apiRouter.post("/fantasy", function (req, res) {
     const { numberOfQuestions } = req.body;
     // console.log(numberOfQuestions);
-    if (movies) {
+    if (numberOfQuestions) {
       questions = fantasyQuestions;
       questionGenerationHelper
         .generatePremadeQuestions(questions, numberOfQuestions)
@@ -89,7 +89,7 @@ module.exports = function (express, pool) {
   apiRouter.post("/action", function (req, res) {
     const { numberOfQuestions } = req.body;
     // console.log(numberOfQuestions);
-    if (movies) {
+    if (numberOfQuestions) {
       questions = actionQuestions;
       questionGenerationHelper
         .generatePremadeQuestions(questions, numberOfQuestions)
@@ -103,7 +103,7 @@ module.exports = function (express, pool) {
   apiRouter.post("/drama", function (req, res) {
     const { numberOfQuestions } = req.body;
     // console.log(numberOfQuestions);
-    if (movies) {
+    if (numberOfQuestions) {
       questions = dramaQuestions;
       questionGenerationHelper
         .generatePremadeQuestions(questions, numberOfQuestions)
@@ -117,7 +117,7 @@ module.exports = function (express, pool) {
   apiRouter.post("/romance", function (req, res) {
     const { numberOfQuestions } = req.body;
     // console.log(numberOfQuestions);
-    if (movies) {
+    if (numberOfQuestions) {
       questions = romanceQuestions;
       questionGenerationHelper
         .generatePremadeQuestions(questions, numberOfQuestions)
@@ -130,8 +130,8 @@ module.exports = function (express, pool) {
 
   apiRouter.post("/horror", function (req, res) {
     const { numberOfQuestions } = req.body;
-    // console.log(numberOfQuestions);
-    if (movies) {
+    console.log(req.body);
+    if (numberOfQuestions) {
       questions = horrorQuestions;
       questionGenerationHelper
         .generatePremadeQuestions(questions, numberOfQuestions)
