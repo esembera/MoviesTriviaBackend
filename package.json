@@ -2,9 +2,12 @@
   "name": "mean",
   "version": "1.0.0",
   "description": "",
+  "engines": {
+    "node": "18.x"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js",
+    "start": "node server.js",
     "ngrok-win": "ngrok http 8080",
     "ngrok": "./ngrok http 8080",
     "vercel-build": "echo hello"
