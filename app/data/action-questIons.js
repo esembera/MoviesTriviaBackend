@@ -1,4 +1,4 @@
-actionQuestions = [
+module.exports = [
   {
     question:
       "In which movie does Keanu Reeves play a retired hitman seeking revenge?",
@@ -195,5 +195,3 @@ actionQuestions = [
     ],
   },
 ];
-
-exports.actionQuestions = this.actionQuestions;
