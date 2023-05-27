@@ -2,6 +2,14 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 
+const comedyQuestions = require("./app/data/comedy-questions");
+const thrillerQuestions = require("./app/data/thriller-questions");
+const animationQuestions = require("./app/data/animation-questions");
+const fantasyQuestions = require("./app/data/fantasy-questions");
+const actionQuestions = require("./app/data/action-questions");
+const dramaQuestions = require("./app/data/drama-questions");
+const romanceQuestions = require("./app/data/romance-questions");
+const horrorQuestions = require("./app/data/horror-questions");
 const bodyParser = require("body-parser");
 const morgan = require("morgan");
 const path = require("path");
