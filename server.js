@@ -20,3 +20,5 @@ app.use("/api", apiRouter);
 app.listen(config.port);
 
 console.log("Running on port " + config.port);
+
+module.exports = app;
