@@ -17,17 +17,16 @@ function getRandomYearWithoutCorrectAnswer(
   flag,
   oldFlag
 ) {
+  if (flag != oldFlag) {
+    yearBuffer.splice(0, yearBuffer.length);
+  }
   min = Math.ceil(min);
   max = Math.floor(max);
   number = Math.floor(Math.random() * (max - min) + min);
   while (number == correctNumber || yearBuffer.includes(number)) {
     number = Math.floor(Math.random() * (max - min) + min);
   }
-  if (flag == oldFlag) {
-    yearBuffer.push(number);
-  } else {
-    yearBuffer.splice(0, yearBuffer.length);
-  }
+  yearBuffer.push(number);
   return number; // The maximum is exclusive and the minimum is inclusive
 }
 
@@ -38,17 +37,16 @@ function getRandomIntWithoutCorrectAnswer1(
   flag,
   oldFlag
 ) {
+  if (flag != oldFlag) {
+    intBuffer1.splice(0, intBuffer1.length);
+  }
   min = Math.ceil(min);
   max = Math.floor(max);
   number = Math.floor(Math.random() * (max - min) + min);
   while (number == correctNumber || intBuffer1.includes(number)) {
     number = Math.floor(Math.random() * (max - min) + min);
   }
-  if (flag == oldFlag) {
-    intBuffer1.push(number);
-  } else {
-    intBuffer1.splice(0, intBuffer1.length);
-  }
+  intBuffer1.push(number);
   return number; // The maximum is exclusive and the minimum is inclusive
 }
 
@@ -59,17 +57,16 @@ function getRandomIntWithoutCorrectAnswer0(
   flag,
   oldFlag
 ) {
+  if (flag != oldFlag) {
+    intBuffer0.splice(0, intBuffer0.length);
+  }
   min = Math.ceil(min);
   max = Math.floor(max);
   number = Math.floor(Math.random() * (max - min) + min);
   while (number == correctNumber || intBuffer0.includes(number)) {
     number = Math.floor(Math.random() * (max - min) + min);
   }
-  if (flag == oldFlag) {
-    intBuffer0.push(number);
-  } else {
-    intBuffer0.splice(0, intBuffer0.length);
-  }
+  intBuffer0.push(number);
   return number; // The maximum is exclusive and the minimum is inclusive
 }
 
@@ -80,34 +77,35 @@ function getRandomIntWithoutCorrectAnswer2(
   flag,
   oldFlag
 ) {
+  if (flag != oldFlag) {
+    intBuffer2.splice(0, intBuffer2.length);
+  }
   min = Math.ceil(min);
   max = Math.floor(max);
   number = Math.floor(Math.random() * (max - min) + min);
   while (number == correctNumber || intBuffer2.includes(number)) {
     number = Math.floor(Math.random() * (max - min) + min);
   }
-  if (flag == oldFlag) {
-    intBuffer2.push(number);
-  } else {
-    intBuffer2.splice(0, intBuffer2.length);
-  }
+  intBuffer2.push(number);
   return number; // The maximum is exclusive and the minimum is inclusive
 }
 
 function getRandomGenre(genre, flag, oldFlag) {
+  if (flag != oldFlag) {
+    genreBuffer.splice(0, genreBuffer.length);
+  }
   let randomGenre = genres[Math.floor(Math.random() * genres.length)];
   while (randomGenre == genre || genreBuffer.includes(randomGenre)) {
     randomGenre = genres[Math.floor(Math.random() * genres.length)];
   }
-  if (flag == oldFlag) {
-    genreBuffer.push(randomGenre);
-  } else {
-    genreBuffer.splice(0, genreBuffer.length);
-  }
+  genreBuffer.push(randomGenre);
   return randomGenre;
 }
 
 function getRandomProdCompany(prodCompany, flag, oldFlag) {
+  if (flag != oldFlag) {
+    prodCompaniesBuffer.splice(0, prodCompaniesBuffer.length);
+  }
   let randomProdCompany =
     prodCompanies[Math.floor(Math.random() * prodCompanies.length)];
   while (
@@ -117,11 +115,7 @@ function getRandomProdCompany(prodCompany, flag, oldFlag) {
     randomProdCompany =
       prodCompanies[Math.floor(Math.random() * prodCompanies.length)];
   }
-  if (flag == oldFlag) {
-    prodCompaniesBuffer.push(randomProdCompany);
-  } else {
-    prodCompaniesBuffer.splice(0, prodCompaniesBuffer.length);
-  }
+  prodCompaniesBuffer.push(randomProdCompany);
   return randomProdCompany;
 }
 
@@ -146,6 +140,9 @@ function shuffleArrayData(array) {
 }
 
 function getRandomDirector(director, flag, oldFlag) {
+  if (flag != oldFlag) {
+    directorBuffer.splice(0, directorBuffer.length);
+  }
   let randomDirector = directors[Math.floor(Math.random() * directors.length)];
   while (
     randomDirector == director ||
@@ -153,11 +150,7 @@ function getRandomDirector(director, flag, oldFlag) {
   ) {
     randomDirector = directors[Math.floor(Math.random() * directors.length)];
   }
-  if (flag == oldFlag) {
-    directorBuffer.push(randomDirector);
-  } else {
-    directorBuffer.splice(0, directorBuffer.length);
-  }
+  directorBuffer.push(randomDirector);
   return randomDirector;
 }
 
