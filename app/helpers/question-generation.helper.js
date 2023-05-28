@@ -40,13 +40,11 @@ function getMovieDirector(crew) {
 }
 
 async function generateQuestions(data, numberOfQuestions) {
-  let flag = false;
-  let oldFlag = false;
   let questions = [];
   for (let info of data) {
     const movieInfo = await getMovieInfo(info);
     const movieCastInfo = await getMovieCast(info);
-    flag = !flag;
+    randomizeDataHelper.emptyBuffers();
     let question = {
       question: `What year was the movie "${movieInfo?.original_title}" released?`,
       correctAnswer: `${movieInfo?.release_date?.split("-")[0]}`,
@@ -58,9 +56,7 @@ async function generateQuestions(data, numberOfQuestions) {
               parseInt(movieInfo?.release_date?.split("-")[0]) + 10,
               today.getFullYear()
             ),
-            parseInt(movieInfo?.release_date?.split("-")[0]),
-            flag,
-            oldFlag
+            parseInt(movieInfo?.release_date?.split("-")[0])
           )
           .toString(),
         randomizeDataHelper
@@ -70,9 +66,7 @@ async function generateQuestions(data, numberOfQuestions) {
               parseInt(movieInfo?.release_date?.split("-")[0]) + 10,
               today.getFullYear()
             ),
-            parseInt(movieInfo?.release_date?.split("-")[0]),
-            flag,
-            oldFlag
+            parseInt(movieInfo?.release_date?.split("-")[0])
           )
           .toString(),
         randomizeDataHelper
@@ -82,9 +76,7 @@ async function generateQuestions(data, numberOfQuestions) {
               parseInt(movieInfo?.release_date?.split("-")[0]) + 10,
               today.getFullYear()
             ),
-            parseInt(movieInfo?.release_date?.split("-")[0]),
-            flag,
-            oldFlag
+            parseInt(movieInfo?.release_date?.split("-")[0])
           )
           .toString(),
       ],
@@ -95,21 +87,9 @@ async function generateQuestions(data, numberOfQuestions) {
       question: `What is the main genre of the movie "${movieInfo?.original_title}"?`,
       correctAnswer: `${movieInfo?.genres[0]?.name}`,
       wrongAnswers: [
-        randomizeDataHelper.getRandomGenre(
-          `${movieInfo?.genres[0]?.name}`,
-          flag,
-          oldFlag
-        ),
-        randomizeDataHelper.getRandomGenre(
-          `${movieInfo?.genres[0]?.name}`,
-          flag,
-          oldFlag
-        ),
-        randomizeDataHelper.getRandomGenre(
-          `${movieInfo?.genres[0]?.name}`,
-          flag,
-          oldFlag
-        ),
+        randomizeDataHelper.getRandomGenre(`${movieInfo?.genres[0]?.name}`),
+        randomizeDataHelper.getRandomGenre(`${movieInfo?.genres[0]?.name}`),
+        randomizeDataHelper.getRandomGenre(`${movieInfo?.genres[0]?.name}`),
       ],
     };
     questions.push(question);
@@ -122,9 +102,7 @@ async function generateQuestions(data, numberOfQuestions) {
             randomizeDataHelper.getRandomIntWithoutCorrectAnswer0(
               0,
               movieCastInfo.cast.length,
-              0,
-              flag,
-              oldFlag
+              0
             )
           ].original_name
         }`,
@@ -133,9 +111,7 @@ async function generateQuestions(data, numberOfQuestions) {
             randomizeDataHelper.getRandomIntWithoutCorrectAnswer0(
               0,
               movieCastInfo.cast.length / 2,
-              0,
-              flag,
-              oldFlag
+              0
             )
           ].original_name
         }`,
@@ -144,9 +120,7 @@ async function generateQuestions(data, numberOfQuestions) {
             randomizeDataHelper.getRandomIntWithoutCorrectAnswer0(
               0,
               movieCastInfo.cast.length / 2,
-              0,
-              flag,
-              oldFlag
+              0
             )
           ].original_name
         }`,
@@ -158,19 +132,13 @@ async function generateQuestions(data, numberOfQuestions) {
       correctAnswer: `${movieInfo?.production_companies[0]?.name}`,
       wrongAnswers: [
         randomizeDataHelper.getRandomProdCompany(
-          `${movieInfo?.production_companies[0]?.name}`,
-          flag,
-          oldFlag
+          `${movieInfo?.production_companies[0]?.name}`
         ),
         randomizeDataHelper.getRandomProdCompany(
-          `${movieInfo?.production_companies[0]?.name}`,
-          flag,
-          oldFlag
+          `${movieInfo?.production_companies[0]?.name}`
         ),
         randomizeDataHelper.getRandomProdCompany(
-          `${movieInfo?.production_companies[0]?.name}`,
-          flag,
-          oldFlag
+          `${movieInfo?.production_companies[0]?.name}`
         ),
       ],
     };
@@ -180,19 +148,13 @@ async function generateQuestions(data, numberOfQuestions) {
       correctAnswer: `${getMovieDirector(movieCastInfo.crew)}`,
       wrongAnswers: [
         randomizeDataHelper.getRandomDirector(
-          `${getMovieDirector(movieCastInfo.crew)}`,
-          flag,
-          oldFlag
+          `${getMovieDirector(movieCastInfo.crew)}`
         ),
         randomizeDataHelper.getRandomDirector(
-          `${getMovieDirector(movieCastInfo.crew)}`,
-          flag,
-          oldFlag
+          `${getMovieDirector(movieCastInfo.crew)}`
         ),
         randomizeDataHelper.getRandomDirector(
-          `${getMovieDirector(movieCastInfo.crew)}`,
-          flag,
-          oldFlag
+          `${getMovieDirector(movieCastInfo.crew)}`
         ),
       ],
     };
@@ -206,9 +168,7 @@ async function generateQuestions(data, numberOfQuestions) {
             randomizeDataHelper.getRandomIntWithoutCorrectAnswer1(
               0,
               movieCastInfo.cast.length / 2,
-              0,
-              flag,
-              oldFlag
+              0
             )
           ].character
         }`,
@@ -217,9 +177,7 @@ async function generateQuestions(data, numberOfQuestions) {
             randomizeDataHelper.getRandomIntWithoutCorrectAnswer1(
               0,
               movieCastInfo.cast.length / 2,
-              0,
-              flag,
-              oldFlag
+              0
             )
           ].character
         }`,
@@ -228,9 +186,7 @@ async function generateQuestions(data, numberOfQuestions) {
             randomizeDataHelper.getRandomIntWithoutCorrectAnswer1(
               0,
               movieCastInfo.cast.length / 2,
-              0,
-              flag,
-              oldFlag
+              0
             )
           ].character
         }`,
@@ -246,9 +202,7 @@ async function generateQuestions(data, numberOfQuestions) {
             randomizeDataHelper.getRandomIntWithoutCorrectAnswer2(
               0,
               movieCastInfo.cast.length / 2,
-              1,
-              flag,
-              oldFlag
+              1
             )
           ].character
         }`,
@@ -257,9 +211,7 @@ async function generateQuestions(data, numberOfQuestions) {
             randomizeDataHelper.getRandomIntWithoutCorrectAnswer2(
               0,
               movieCastInfo.cast.length / 2,
-              1,
-              flag,
-              oldFlag
+              1
             )
           ].character
         }`,
@@ -268,9 +220,7 @@ async function generateQuestions(data, numberOfQuestions) {
             randomizeDataHelper.getRandomIntWithoutCorrectAnswer2(
               0,
               movieCastInfo.cast.length / 2,
-              1,
-              flag,
-              oldFlag
+              1
             )
           ].character
         }`,
@@ -278,13 +228,13 @@ async function generateQuestions(data, numberOfQuestions) {
     };
     questions.push(question);
     // console.log(questions);
-    oldFlag = flag;
   }
   questions = randomizeDataHelper.shuffleArrayData(questions);
   let finalQuestions = [];
   for (i = 0; i < numberOfQuestions; i++) {
     finalQuestions.push(questions[i]);
   }
+  randomizeDataHelper.emptyBuffers();
   // console.log(questions);
   return finalQuestions;
 }

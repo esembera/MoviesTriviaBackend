@@ -10,16 +10,7 @@ let intBuffer0 = [];
 let intBuffer1 = [];
 let intBuffer2 = [];
 
-function getRandomYearWithoutCorrectAnswer(
-  min,
-  max,
-  correctNumber,
-  flag,
-  oldFlag
-) {
-  if (flag != oldFlag) {
-    yearBuffer.splice(0, yearBuffer.length);
-  }
+function getRandomYearWithoutCorrectAnswer(min, max, correctNumber) {
   min = Math.ceil(min);
   max = Math.floor(max);
   number = Math.floor(Math.random() * (max - min) + min);
@@ -30,16 +21,7 @@ function getRandomYearWithoutCorrectAnswer(
   return number; // The maximum is exclusive and the minimum is inclusive
 }
 
-function getRandomIntWithoutCorrectAnswer1(
-  min,
-  max,
-  correctNumber,
-  flag,
-  oldFlag
-) {
-  if (flag != oldFlag) {
-    intBuffer1.splice(0, intBuffer1.length);
-  }
+function getRandomIntWithoutCorrectAnswer1(min, max, correctNumber) {
   min = Math.ceil(min);
   max = Math.floor(max);
   number = Math.floor(Math.random() * (max - min) + min);
@@ -50,16 +32,7 @@ function getRandomIntWithoutCorrectAnswer1(
   return number; // The maximum is exclusive and the minimum is inclusive
 }
 
-function getRandomIntWithoutCorrectAnswer0(
-  min,
-  max,
-  correctNumber,
-  flag,
-  oldFlag
-) {
-  if (flag != oldFlag) {
-    intBuffer0.splice(0, intBuffer0.length);
-  }
+function getRandomIntWithoutCorrectAnswer0(min, max, correctNumber) {
   min = Math.ceil(min);
   max = Math.floor(max);
   number = Math.floor(Math.random() * (max - min) + min);
@@ -70,16 +43,7 @@ function getRandomIntWithoutCorrectAnswer0(
   return number; // The maximum is exclusive and the minimum is inclusive
 }
 
-function getRandomIntWithoutCorrectAnswer2(
-  min,
-  max,
-  correctNumber,
-  flag,
-  oldFlag
-) {
-  if (flag != oldFlag) {
-    intBuffer2.splice(0, intBuffer2.length);
-  }
+function getRandomIntWithoutCorrectAnswer2(min, max, correctNumber) {
   min = Math.ceil(min);
   max = Math.floor(max);
   number = Math.floor(Math.random() * (max - min) + min);
@@ -90,10 +54,7 @@ function getRandomIntWithoutCorrectAnswer2(
   return number; // The maximum is exclusive and the minimum is inclusive
 }
 
-function getRandomGenre(genre, flag, oldFlag) {
-  if (flag != oldFlag) {
-    genreBuffer.splice(0, genreBuffer.length);
-  }
+function getRandomGenre(genre) {
   let randomGenre = genres[Math.floor(Math.random() * genres.length)];
   while (randomGenre == genre || genreBuffer.includes(randomGenre)) {
     randomGenre = genres[Math.floor(Math.random() * genres.length)];
@@ -102,10 +63,7 @@ function getRandomGenre(genre, flag, oldFlag) {
   return randomGenre;
 }
 
-function getRandomProdCompany(prodCompany, flag, oldFlag) {
-  if (flag != oldFlag) {
-    prodCompaniesBuffer.splice(0, prodCompaniesBuffer.length);
-  }
+function getRandomProdCompany(prodCompany) {
   let randomProdCompany =
     prodCompanies[Math.floor(Math.random() * prodCompanies.length)];
   while (
@@ -139,10 +97,7 @@ function shuffleArrayData(array) {
   return array;
 }
 
-function getRandomDirector(director, flag, oldFlag) {
-  if (flag != oldFlag) {
-    directorBuffer.splice(0, directorBuffer.length);
-  }
+function getRandomDirector(director) {
   let randomDirector = directors[Math.floor(Math.random() * directors.length)];
   while (
     randomDirector == director ||
@@ -154,6 +109,16 @@ function getRandomDirector(director, flag, oldFlag) {
   return randomDirector;
 }
 
+function emptyBuffers() {
+  yearBuffer.splice(0, yearBuffer.length);
+  genreBuffer.splice(0, genreBuffer.length);
+  prodCompaniesBuffer.splice(0, prodCompaniesBuffer.length);
+  directorBuffer.splice(0, directorBuffer.length);
+  intBuffer0.splice(0, intBuffer0.length);
+  intBuffer1.splice(0, intBuffer1.length);
+  intBuffer2.splice(0, intBuffer2.length);
+}
+
 exports.getRandomIntWithoutCorrectAnswer0 = getRandomIntWithoutCorrectAnswer0;
 exports.getRandomIntWithoutCorrectAnswer1 = getRandomIntWithoutCorrectAnswer1;
 exports.getRandomGenre = getRandomGenre;
@@ -162,3 +127,4 @@ exports.shuffleArrayData = shuffleArrayData;
 exports.getRandomDirector = getRandomDirector;
 exports.getRandomYearWithoutCorrectAnswer = getRandomYearWithoutCorrectAnswer;
 exports.getRandomIntWithoutCorrectAnswer2 = getRandomIntWithoutCorrectAnswer2;
+exports.emptyBuffers = emptyBuffers;
